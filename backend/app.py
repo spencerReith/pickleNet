@@ -13,7 +13,7 @@ def write():
     data = request.form.to_dict()
     print(data)
     connection = Connection(db_path)
-    connection.insert_author(data["Author"])
+    connection.insert_author(data["Author"], data["Article Text"])
 
 
     return jsonify({"response": "Success!"})

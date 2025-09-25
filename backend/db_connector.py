@@ -7,20 +7,22 @@ class Connection:
     def __init__(self, db_path):
         self.conn = sqlite3.connect(db_path)
 
-    def insert_author(self, author):
+    def insert_author(self, author, articleText):
         time_str = Connection.get_timestr()
 
         cursor = self.conn.cursor()
         query = """
                 INSERT INTO ARTICLES
-                (AUTHOR, TIME_STR)
+                (AUTHOR, ARTICLE, TIME_STR)
                 VALUES
-                (?, ?);
+                (?, ?, ?);
                 """
 
-        bindings = (author, time_str)
-        cursor.execute(query, bindings)
+        bindings = (author, articleText, time_str)
+        print(cursor.execute(query, bindings))
         self.conn.commit()
+        print("done")
+    
 
     @staticmethod
     def get_timestr():

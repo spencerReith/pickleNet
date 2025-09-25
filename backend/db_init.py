@@ -9,6 +9,7 @@ def init():
     query1 = """
             CREATE TABLE ARTICLES (
                 AUTHOR TEXT,
+                ARTICLE TEXT,
                 TIME_STR TEXT
                 )
             """

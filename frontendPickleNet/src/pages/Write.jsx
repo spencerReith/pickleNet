@@ -10,13 +10,27 @@ function Write() {
 
     const [ author, setAuthor ] = useState('');
 
+    const [articleText, setArticleText] = useState('');
+
     const postArticle = async () => {
+
+            if (!author || !articleText){
+                alert("Both author and article text are required!");
+                return;
+            }
+
             const formData = new FormData();
             formData.append(
                 "Author",
                 author
             );
+            formData.append(
+                "Article Text",
+                articleText
+            );
+
             setAuthor("");
+            setArticleText("");
             const response = await axios.post(`${url}/write`, formData);
             console.log(response.data);
         }
@@ -29,6 +43,8 @@ function Write() {
             <br /><br />
             <label>Author:</label>&nbsp;&nbsp;
             <input value={author} onChange={(event) => setAuthor(event.target.value)}/>
+            <label>Text:</label>&nbsp;&nbsp;
+            <input value={articleText} onChange={(event) => setArticleText(event.target.value)}/>
             <br /><br />
             <button onClick={() => postArticle()}>Post Article</button>
         </>
