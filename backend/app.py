@@ -16,7 +16,8 @@ def write():
     ext = os.path.splitext(image.filename)[1]
 
     connection = Connection(db_path)
-    row_id = connection.insert_author(data["Author"])
+
+    row_id = connection.insert_author(data["Author"], data["Article Text"])
 
     fp = f"images/{row_id}{ext}"
     print(image.save(fp))

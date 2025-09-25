@@ -11,8 +11,10 @@ function Write() {
     const [ author, setAuthor ] = useState('');
     const [ file, setFile ] = useState(null);
 
+    const [articleText, setArticleText] = useState('');
+
     const postArticle = async () => {
-        if (author === "" || file === null) {
+        if (author === "" || file === null || !articleText) {
             window.alert("Ensure all fields are filled in.");
             return;
         }
@@ -26,7 +28,12 @@ function Write() {
             "Image",
             file
         )
+        formData.append(
+                "Article Text",
+                articleText
+            );
         setAuthor("");
+        setArticleText("");
         setFile(null);
         const response = await axios.post(`${url}/write`, formData);
         console.log(response.data);
@@ -45,6 +52,8 @@ function Write() {
             <br /><br />
             <label>Author:</label>&nbsp;&nbsp;
             <input value={author} onChange={(event) => setAuthor(event.target.value)}/>
+            <label>Text:</label>&nbsp;&nbsp;
+            <input value={articleText} onChange={(event) => setArticleText(event.target.value)}/>
             <br /><br />
             <input type="file" accept=".img,.jpg,.jpeg,.png" onChange={handleFileChange}/>
             <br /><br />

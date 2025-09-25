@@ -1,5 +1,10 @@
 venv/
 __pychache__/
+main.db
+__pycache__/app.cpython-310.pyc
+__pycache__/app.cpython-313.pyc
+__pycache__/db_connector.cpython-310.pyc
+__pycache__/db_connector.cpython-313.pyc
 images/*
 !images/placeholder.txt
 main.db

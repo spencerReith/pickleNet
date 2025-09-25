@@ -10,6 +10,7 @@ def init():
             CREATE TABLE ARTICLES (
                 IMAGE_ID INTEGER PRIMARY KEY AUTOINCREMENT,
                 AUTHOR TEXT,
+                ARTICLE TEXT,
                 TIME_STR TEXT
                 )
             """
