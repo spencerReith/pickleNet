@@ -24,6 +24,9 @@ class Connection:
         print("done")
     
 
+        return cursor.lastrowid
+    
+
     @staticmethod
     def get_timestr():
         timestamp = datetime.now()

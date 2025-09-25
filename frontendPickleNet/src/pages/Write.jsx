@@ -9,31 +9,40 @@ function Write() {
     const navigate = useNavigate();
 
     const [ author, setAuthor ] = useState('');
+    const [ file, setFile ] = useState(null);
 
     const [articleText, setArticleText] = useState('');
 
     const postArticle = async () => {
+        if (author === "" || file === null || !articleText) {
+            window.alert("Ensure all fields are filled in.");
+            return;
+        }
 
-            if (!author || !articleText){
-                alert("Both author and article text are required!");
-                return;
-            }
-
-            const formData = new FormData();
-            formData.append(
-                "Author",
-                author
-            );
-            formData.append(
+        const formData = new FormData();
+        formData.append(
+            "Author",
+            author
+        );
+        formData.append(
+            "Image",
+            file
+        )
+        formData.append(
                 "Article Text",
                 articleText
             );
+        setAuthor("");
+        setArticleText("");
+        setFile(null);
+        const response = await axios.post(`${url}/write`, formData);
+        console.log(response.data);
 
-            setAuthor("");
-            setArticleText("");
-            const response = await axios.post(`${url}/write`, formData);
-            console.log(response.data);
-        }
+    }
+
+    const handleFileChange = async (e) => {
+        setFile(e.target.files[0]);
+    }
 
     return (
         <>
@@ -45,6 +54,8 @@ function Write() {
             <input value={author} onChange={(event) => setAuthor(event.target.value)}/>
             <label>Text:</label>&nbsp;&nbsp;
             <input value={articleText} onChange={(event) => setArticleText(event.target.value)}/>
+            <br /><br />
+            <input type="file" accept=".img,.jpg,.jpeg,.png" onChange={handleFileChange}/>
             <br /><br />
             <button onClick={() => postArticle()}>Post Article</button>
         </>

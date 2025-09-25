@@ -8,6 +8,7 @@ def init():
     query0 = "DROP TABLE IF EXISTS ARTICLES"
     query1 = """
             CREATE TABLE ARTICLES (
+                IMAGE_ID INTEGER PRIMARY KEY AUTOINCREMENT,
                 AUTHOR TEXT,
                 ARTICLE TEXT,
                 TIME_STR TEXT
