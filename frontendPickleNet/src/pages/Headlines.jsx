@@ -4,8 +4,6 @@ import '../styles/Headlines.css'
 function Headlines() {
   const navigate = useNavigate();
 
-
-
   return (
     <>
       <h1>PickleNet</h1>
