@@ -22,6 +22,9 @@ class Connection:
         cursor.execute(query, bindings)
         self.conn.commit()
 
+        return cursor.lastrowid
+    
+
     @staticmethod
     def get_timestr():
         timestamp = datetime.now()
