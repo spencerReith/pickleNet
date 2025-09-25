@@ -32,7 +32,8 @@ python db_init.py
 ## now you're good to run the server
 ```
 
-## to run frontend server
+## to run backend server
+````
 flask run
 ```
 
