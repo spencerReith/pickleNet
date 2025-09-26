@@ -4,10 +4,12 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './styles/index.css'
 import Headlines from './pages/Headlines.jsx'
 import Write from './pages/Write.jsx'
+import Navbar from './navbar.jsx'
 
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
+    <Navbar/>
     <Routes>
       <Route path="/" element={<Headlines />}/>
       <Route path="/write" element={<Write />} />
