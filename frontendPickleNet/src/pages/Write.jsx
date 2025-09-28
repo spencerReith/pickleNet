@@ -45,21 +45,53 @@ function Write() {
     }
 
     return (
-        <>
-            <h1>Write an article on this page.</h1>
-            <br /><br />
-            <button onClick={() => navigate('/')}>Headlines Page</button>
-            <br /><br />
-            <label>Author:</label>&nbsp;&nbsp;
-            <input value={author} onChange={(event) => setAuthor(event.target.value)}/>
-            <label>Text:</label>&nbsp;&nbsp;
-            <input value={articleText} onChange={(event) => setArticleText(event.target.value)}/>
-            <br /><br />
-            <input type="file" accept=".img,.jpg,.jpeg,.png" onChange={handleFileChange}/>
-            <br /><br />
-            <button onClick={() => postArticle()}>Post Article</button>
-        </>
-    )
+        <div className='post-page'>
+            <h1>Share your pickleball story!</h1>
+
+            <div className='post-editor'>
+                {/*Left side: image upload and preview */}
+                <div className='post-image-selection'>
+                    <input 
+                        type="file" 
+                        accept=".img,.jpg,.jpeg,.png" 
+                        onChange={handleFileChange}
+                    />
+                    {file && (
+                        <img
+                            src={URL.createObjectURL(file)}
+                            alt="preview"
+                            className="post-image-preview"
+                        />
+                    )}
+                </div>
+
+                {/*Right side: author, caption, and button */}            
+                <div className='post-form-selection'>
+                    <label>Author:</label>
+                    <input 
+                        type="text"
+                        value={author} 
+                        onChange={(event) => setAuthor(event.target.value)}
+                        className='post-author-input'
+                        placeholder='My name is...'
+                    />
+
+                    <label>Caption:</label>
+                    <textarea
+                        value={articleText}
+                        onChange={(event) => setArticleText(event.target.value)}
+                        className='article-text'
+                        placeholder='Write something...'
+                    />
+
+                     <button className="post-submit-button" onClick={() => postArticle()}>Post</button>
+
+                </div>
+            </div>
+            
+
+        </div>
+    );
 }
 
 export default Write
