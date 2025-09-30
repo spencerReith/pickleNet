@@ -17,13 +17,24 @@ def write():
 
     connection = Connection(db_path)
 
-    row_id = connection.insert_author(data["Author"], data["Article Text"])
+    row_id = connection.insert_author(data["Author"], data["Article Text"], ext)
 
-    fp = f"images/{row_id}{ext}"
+    fp = f"static/images/{row_id}{ext}"
     print(image.save(fp))
 
 
     return jsonify({"response": "Success!"})
+
+@app.route('/getContent', methods=['GET'])
+def getContent():
+    print('here')
+    connection = Connection(db_path)
+    content = connection.get_content()
+    print(content)
+
+
+    return jsonify(content)
+
 
 
 if __name__ == '__main__':

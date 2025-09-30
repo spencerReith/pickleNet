@@ -8,13 +8,14 @@ function Navbar(){
         <nav
         style={{
             position: "fixed", //fix position
+            overflow: "hidden",
 
             //put at top
             top:0,
             left:0,
 
             width: "100%", //span full width of screen
-            height: "60px", //set a consistent height
+            height: "80px", //set a consistent height
             display: "flex", //items in a row
             justifyContent: "space-between", //spread content apart
             alignItems: "center", //centers items (vertically)
@@ -24,6 +25,9 @@ function Navbar(){
             zIndex: 1000, //make sure it stays above page
             boxSizing: "border-box", //makes it so the words fit on nav bar, not off page
             overflowX: "hidden",
+            fontSize: "140%",
+            textShadow: "2px 2px 4px black",
+            fontWeight: "bold",
         }}
         >
             {/*left side: app title "PickleNet" */}

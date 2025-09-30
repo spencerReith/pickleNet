@@ -11,6 +11,7 @@ def init():
                 IMAGE_ID INTEGER PRIMARY KEY AUTOINCREMENT,
                 AUTHOR TEXT,
                 ARTICLE TEXT,
+                IMAGE_NAME TEXT,
                 TIME_STR TEXT
                 )
             """
