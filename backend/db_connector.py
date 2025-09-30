@@ -7,7 +7,7 @@ class Connection:
     def __init__(self, db_path):
         self.conn = sqlite3.connect(db_path)
 
-    def insert_author(self, author, articleText):
+    def insert_author(self, author, articleText, ext):
         time_str = Connection.get_timestr()
 
         cursor = self.conn.cursor()
@@ -19,12 +19,35 @@ class Connection:
                 """
 
         bindings = (author, articleText, time_str)
-        print(cursor.execute(query, bindings))
+        cursor.execute(query, bindings)
         self.conn.commit()
-        print("done")
-    
+        rowid = cursor.lastrowid
+        imageName = f"{rowid}{ext}"
+        query = """
+                UPDATE ARTICLES
+                SET IMAGE_NAME = ?
+                WHERE IMAGE_ID = ?
+                """
+        bindings = (imageName, rowid)
+        cursor.execute(query, bindings)
+        self.conn.commit()
 
-        return cursor.lastrowid
+        return rowid
+
+    def get_content(self):
+        cursor = self.conn.cursor()
+        query = """
+                SELECT * FROM ARTICLES
+                ORDER BY IMAGE_ID DESC
+                LIMIT 7;
+                """
+        res = cursor.execute(query)
+        res = res.fetchall()
+        content = []
+        for tpl in res:
+            content.append(list(tpl))
+        
+        return content
     
 
     @staticmethod

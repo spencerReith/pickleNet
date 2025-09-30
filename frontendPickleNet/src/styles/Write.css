@@ -15,6 +15,8 @@
     border-radius: 8px;
     padding: 20px;
     background-color: #fff;
+    border: 1px solid darkgreen;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 
 .post-image-selection {
@@ -57,6 +59,7 @@
     transition: all 0.2s ease-in-out;
     font-family: inherit; /*force same font*/
     line-height: 1.4; /*normalize line height*/
+    resize: none;
 }
 
 .article-text{
@@ -77,6 +80,14 @@
 
 .post-submit-button{
     margin-top: 12px;
+    background-color: green;
+    color: white;
 }
+.post-submit-button:hover{
+    margin-top: 12px;
+    background-color: rgb(8, 77, 8);
+    color: white;
+}
+
 
 

@@ -35,7 +35,7 @@ python db_init.py
 ## to run backend server
 ````
 flask run
-```
+````
 
 
 no need to click on link just where server is hosted or smth.

@@ -46,8 +46,8 @@ function Write() {
 
     return (
         <div className='post-page'>
-            <h1>Share your pickleball story!</h1>
-
+            <div className='header'>Share your pickleball story!</div>
+            
             <div className='post-editor'>
                 {/*Left side: image upload and preview */}
                 <div className='post-image-selection'>
@@ -63,11 +63,23 @@ function Write() {
                             className="post-image-preview"
                         />
                     )}
+                    {!file && (
+                        <div>
+                            <img
+                                src={`http://localhost:5000/static/images/pickleball.png`}
+                                alt="preview"
+                                className="post-image-preview"
+                            />
+                            <p className='good-font'>Example breaking news photo</p>
+                        </div>
+                    )}
+
+
                 </div>
 
                 {/*Right side: author, caption, and button */}            
                 <div className='post-form-selection'>
-                    <label>Author:</label>
+                    <label className='good-font'>Author:</label>
                     <input 
                         type="text"
                         value={author} 
@@ -76,12 +88,12 @@ function Write() {
                         placeholder='My name is...'
                     />
 
-                    <label>Caption:</label>
+                    <label className='good-font'>Caption:</label>
                     <textarea
                         value={articleText}
                         onChange={(event) => setArticleText(event.target.value)}
                         className='article-text'
-                        placeholder='Write something...'
+                        placeholder='Today in Pickleball...'
                     />
 
                      <button className="post-submit-button" onClick={() => postArticle()}>Post</button>
