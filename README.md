@@ -51,8 +51,8 @@ If you add packages I mean you can freeze them into reqs (google will show) or j
 We built a pickleball news website. There are two main pages. The first page is the "Write" page, where users can write their article/caption and also upload an associated image. The second page is a "Headlines" page, where users can see the 7 most recent articles, with their associated images. There is a navigation bar at the top, where users can navigate between the pages.
 
 Here are images of the two pages:
-[Headlines Page](HeadlinesPageImage.png)
-[Write Page](WritePageImage.png)
+[Headlines Page](HeadlinesPageImage.jpg)
+[Write Page](WritePageImage.jpg)
 
 
 Include some screenshots.
