@@ -2,6 +2,12 @@
 A community-sourced website presenting up-to-date pickleball news. Any visitor can write an article and share a photo about their corner of the pickleball world. Articles appear on the 'Newsfeed' pages ordered by recency of uploading.
 
 ## Demo
+[![PickleNet Demo](https://img.youtube.com/vi/uUsufs3-1AI/maxresdefault.jpg)](https://youtu.be/uUsufs3-1AI)
+
+## Quick Visual
+![](writeupImages/p0.png)
+![](writeupImages/p1.png)
+![](writeupImages/p2.png)
 
 ## Setting Up
 **Frontend:**

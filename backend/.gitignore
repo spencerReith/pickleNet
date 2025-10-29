@@ -7,4 +7,5 @@ __pycache__/db_connector.cpython-310.pyc
 __pycache__/db_connector.cpython-313.pyc
 static/images/*
 !static/images/placeholder.txt
+!static/images/pickleball.png
 main.db
